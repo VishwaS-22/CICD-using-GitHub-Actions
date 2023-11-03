@@ -17,7 +17,7 @@ jobs:
       run: go mod init github.com/VishwaS-22/CICD-using-GitHub-Actions
 
     - name: Build
-      run: go build -v ./src
+      run: go build -v ./src/Golang/main.go
 
     - name: Test
-      run: go test -v ./src
+      run: go test -v ./src/Golang/main.go
