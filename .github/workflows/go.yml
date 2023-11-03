@@ -1,24 +1,23 @@
-# This workflow will build a golang project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
-
 name: Go
 
 on: [push]
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
 
     - name: Set up Go
-      uses: actions/setup-go@v4
+      uses: actions/setup-go@v2
       with:
-        go-version: '1.20'
+        go-version: 1.17
+
+    - name: Initialize Go module
+      run: go mod init github.com/VishwaS-22/CICD-using-GitHub-Actions
 
     - name: Build
-      run: go build -v ./main.go
+      run: go build -v
 
     - name: Test
-      run: go test -v ./main.go
+      run: go test -v
